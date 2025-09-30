@@ -1,103 +1,311 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Sparkles, Brain, Code, Award, Users, Globe, BookOpen } from "lucide-react"
+import Link from "next/link"
+import { WalletButton } from "@/components/wallet-button"
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b border-border">
+        <div className="container mx-auto px-4 py-4">
+          <nav className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+                <Sparkles className="h-5 w-5 text-primary-foreground" />
+              </div>
+              <span className="text-xl font-bold">AfroLearn AI</span>
+            </div>
+            <div className="hidden items-center gap-6 md:flex">
+              <Link href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Features
+              </Link>
+              <Link
+                href="#how-it-works"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                How It Works
+              </Link>
+              <Link href="#community" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Community
+              </Link>
+              <WalletButton />
+            </div>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-20 md:py-32">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm text-primary">
+            <Sparkles className="h-4 w-4" />
+            <span>Education & Accessibility Track Winner</span>
+          </div>
+          <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-balance md:text-7xl">
+            Learn Solana Development with AI
+          </h1>
+          <p className="mb-8 text-lg text-muted-foreground text-pretty md:text-xl">
+            {
+              "An AI-powered Web3 learning platform designed for African students. Get personalized learning paths, real-time AI tutoring, and earn on-chain certifications."
+            }
+          </p>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href="/tutor">
+              <Button size="lg" className="w-full sm:w-auto">
+                Start Learning Free
+              </Button>
+            </Link>
+            <Link href="/dashboard">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
+                View Dashboard
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="mx-auto mt-20 max-w-5xl">
+          <p className="mb-8 text-center text-sm text-muted-foreground">Powered by industry-leading technology</p>
+          <div className="grid grid-cols-2 items-center justify-items-center gap-8 opacity-50 md:grid-cols-4">
+            <div className="text-2xl font-bold">Solana</div>
+            <div className="text-2xl font-bold">Vercel</div>
+            <div className="text-2xl font-bold">AI SDK</div>
+            <div className="text-2xl font-bold">Metaplex</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section id="features" className="container mx-auto px-4 py-20">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-4xl font-bold text-balance">Everything you need to master Solana</h2>
+          <p className="text-lg text-muted-foreground">Built for accessibility, powered by AI, secured by blockchain</p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <Card className="border-border bg-card p-6">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+              <Brain className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="mb-2 text-xl font-bold">AI-Powered Learning</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Personalized curriculum generated by AI based on your skill level and learning goals.
+            </p>
+          </Card>
+
+          <Card className="border-border bg-card p-6">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+              <Code className="h-6 w-6 text-accent" />
+            </div>
+            <h3 className="mb-2 text-xl font-bold">Interactive Coding</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Build real Solana programs with live code execution and instant AI feedback.
+            </p>
+          </Card>
+
+          <Card className="border-border bg-card p-6">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+              <Award className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="mb-2 text-xl font-bold">NFT Certificates</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Earn verifiable on-chain credentials as NFTs to showcase your achievements.
+            </p>
+          </Card>
+
+          <Card className="border-border bg-card p-6">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+              <Globe className="h-6 w-6 text-accent" />
+            </div>
+            <h3 className="mb-2 text-xl font-bold">Multi-Language</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Learn in English, Swahili, French, or Yoruba with AI-powered translation.
+            </p>
+          </Card>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section id="how-it-works" className="container mx-auto px-4 py-20">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-4xl font-bold text-balance">Your journey to Solana mastery</h2>
+          <p className="text-lg text-muted-foreground">Four simple steps to become a blockchain developer</p>
+        </div>
+
+        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+          <Card className="border-border bg-card p-8">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
+              1
+            </div>
+            <h3 className="mb-3 text-2xl font-bold">Connect & Assess</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Connect your Solana wallet and take a quick assessment. Our AI analyzes your responses to create a
+              personalized learning path tailored to your experience level.
+            </p>
+          </Card>
+
+          <Card className="border-border bg-card p-8">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
+              2
+            </div>
+            <h3 className="mb-3 text-2xl font-bold">Learn with AI Tutor</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Work through interactive lessons with your personal AI tutor. Ask questions, get instant code reviews, and
+              practice with real Solana programs on devnet.
+            </p>
+          </Card>
+
+          <Card className="border-border bg-card p-8">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
+              3
+            </div>
+            <h3 className="mb-3 text-2xl font-bold">Build Projects</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Apply your knowledge by building real-world dApps like voting systems, NFT marketplaces, and DeFi
+              protocols. Get AI-powered debugging and optimization tips.
+            </p>
+          </Card>
+
+          <Card className="border-border bg-card p-8">
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
+              4
+            </div>
+            <h3 className="mb-3 text-2xl font-bold">Earn Certificates</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Complete modules to mint NFT certificates on Solana. These verifiable credentials prove your skills to
+              employers and the Web3 community.
+            </p>
+          </Card>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="border-y border-border bg-card/50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="text-center">
+              <div className="mb-2 text-5xl font-bold text-primary">100%</div>
+              <div className="text-sm text-muted-foreground">Free Forever</div>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-5xl font-bold text-primary">24/7</div>
+              <div className="text-sm text-muted-foreground">AI Tutor Available</div>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-5xl font-bold text-primary">4+</div>
+              <div className="text-sm text-muted-foreground">Languages Supported</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section */}
+      <section id="community" className="container mx-auto px-4 py-20">
+        <div className="mx-auto max-w-3xl text-center">
+          <Users className="mx-auto mb-6 h-12 w-12 text-primary" />
+          <h2 className="mb-4 text-4xl font-bold text-balance">Join the AfroLearn community</h2>
+          <p className="mb-8 text-lg text-muted-foreground text-pretty">
+            Connect with fellow learners, collaborate on projects, and get support from experienced developers. Built
+            for Africa, open to the world.
+          </p>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href="/community">
+              <Button size="lg" className="w-full sm:w-auto">
+                <Users className="mr-2 h-4 w-4" />
+                Join Community
+              </Button>
+            </Link>
+            <Link href="/dashboard">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
+                <BookOpen className="mr-2 h-4 w-4" />
+                View Dashboard
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-4">
+            <div>
+              <div className="mb-4 flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+                  <Sparkles className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <span className="text-lg font-bold">AfroLearn AI</span>
+              </div>
+              <p className="text-sm text-muted-foreground">Making Web3 education accessible to everyone in Africa.</p>
+            </div>
+            <div>
+              <h4 className="mb-4 text-sm font-semibold">Platform</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link href="#features" className="hover:text-foreground transition-colors">
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#how-it-works" className="hover:text-foreground transition-colors">
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#community" className="hover:text-foreground transition-colors">
+                    Community
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="mb-4 text-sm font-semibold">Resources</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link href="#" className="hover:text-foreground transition-colors">
+                    Documentation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/community" className="hover:text-foreground transition-colors">
+                    Community
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-foreground transition-colors">
+                    Support
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="mb-4 text-sm font-semibold">Legal</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link href="#" className="hover:text-foreground transition-colors">
+                    Privacy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-foreground transition-colors">
+                    Terms
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-foreground transition-colors">
+                    License
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+            <p>© 2025 AfroLearn AI. Built on Solana. Open source and free forever.</p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
