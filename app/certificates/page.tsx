@@ -177,7 +177,7 @@ export default function CertificatesPage() {
                             <Download className="h-4 w-4 mr-2" />
                             Download
                           </Button>
-                          <Button variant="outline" size="sm" asChild>
+                          <Button variant="outline" size="sm" className="flex-1 bg-transparent">
                             <a
                               href={`https://explorer.solana.com/address/${cert.nftAddress}?cluster=devnet`}
                               target="_blank"
